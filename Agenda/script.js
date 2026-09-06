@@ -15,32 +15,12 @@ const formatador = (data) => {
     }
 }
 
-//object
-const atividade = {
-    nome: 'Almoço',
-    data: new Date('2024-07-08 10:00'),
-    finalizada: true
-}
 
-//lista, array, vetor
 let atividades = [
-    atividade,
-    {
-        nome: "Academia",
-        data: new Date('2024-07-08 12:00'),
-        finalizada: false
-
-    },
-    {
-        nome: 'Faculdade',
-        data: new Date('2024-07-08 16:00'),
-        finalizada: true
-    },
+    
 ]
 
-//atividades = []
 
-//arrow function
 const criarItemAtividade = (atividade) => {
 
     let input = `<input onchange="concluirAtividade(event)" value="${atividade.data}" type="checkbox" `
@@ -126,34 +106,6 @@ const salvarAtividade = (event) => {
     atividades = [novaAtividade, ...atividades]
     atualizarListaDeAtividades()
 }
-
-const criarDiasSelecao = () => {
-    const dias = [
-        "2024-02-28",
-        "2024-02-29",
-        "2024-03-01",
-        "2024-03-02",
-        "2024-03-03",
-    ]
-
-    let diasSelecao = ''
-
-    for (let dia of dias) {
-        const formatar = formatador(dia)
-        const diaFormatado = `${formatar.dia.numerico} de ${formatar.mes}`
-
-        diasSelecao += `
-        <option value="${dia}">${diaFormatado}</option>
-        `
-    }
-
-
-    document
-        .querySelector('select[name="dia"]')
-        .innerHTML = diasSelecao
-}
-
-criarDiasSelecao()
 
 
 const criarHorasSelecao = () => {
